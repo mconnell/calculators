@@ -11,8 +11,7 @@ module Calculators
       end
 
       def payment
-        amount = @principal * ((monthly_rate * exponent) / (exponent - 1))
-        amount.ceil(2)
+        @payment ||= (@principal * ((monthly_rate * exponent) / (exponent - 1))).ceil(2)
       end
 
       def schedule
