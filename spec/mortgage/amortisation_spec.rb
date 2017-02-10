@@ -55,7 +55,7 @@ RSpec.describe Calculators::Mortgage::Amortisation do
         let(:repayment) { subject.schedule[0] }
 
         it "includes the repayment amount of 860.67" do
-          expect(repayment.amount).to eq(BigDecimal.new("860.67"))
+          expect(repayment.payment).to eq(BigDecimal.new("860.67"))
         end
 
         it "includes interest of 50.00" do
@@ -75,7 +75,7 @@ RSpec.describe Calculators::Mortgage::Amortisation do
         let(:repayment) { subject.schedule[4] }
 
         it "includes the repayment amount of 860.67" do
-          expect(repayment.amount).to eq(BigDecimal.new("860.67"))
+          expect(repayment.payment).to eq(BigDecimal.new("860.67"))
         end
 
         it "includes interest of 33.67" do
@@ -95,7 +95,7 @@ RSpec.describe Calculators::Mortgage::Amortisation do
         let(:repayment) { subject.schedule[11] }
 
         it "includes the repayment amount of 860.67" do
-          expect(repayment.amount).to eq(BigDecimal.new("860.67"))
+          expect(repayment.payment).to eq(BigDecimal.new("860.67"))
         end
 
         it "includes interest of 4.29" do

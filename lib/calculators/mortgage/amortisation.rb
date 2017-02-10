@@ -17,18 +17,14 @@ module Calculators
 
       def schedule
         moving_principal = @principal
-        (1..@number_of_payments).map do |payment_number|
-
-          interest = (moving_principal * monthly_rate * 1).ceil(2)
-          deduction = (payment - interest)
-          moving_principal -= deduction
-          moving_principal = moving_principal.ceil(2)
-          OpenStruct.new(
-            amount: payment,
-            interest: interest,
-            deduction: deduction,
-            principal: moving_principal.negative? ? 0 : moving_principal
+        (1..@number_of_payments).map do
+          repayment = Repayment.new(
+            principal: moving_principal,
+            payment: payment,
+            rate: monthly_rate
           )
+          moving_principal = repayment.principal
+          repayment
         end
       end
 
