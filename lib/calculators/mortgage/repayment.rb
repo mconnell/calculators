@@ -14,7 +14,7 @@ module Calculators
       end
 
       def interest
-        (@principal * @rate * 1).ceil(2)
+        (@principal * @rate).ceil(2)
       end
 
       def deduction
