@@ -7,10 +7,16 @@ module Calculators
         @principal = principal
         @payment = payment
         @rate = rate
+
+        adjust_payment_if_greater_than_outstanding_balance
       end
 
       def payment
-        @payment
+        if @payment <= @principal + interest
+          @payment
+        else
+          @principal + interest
+        end
       end
 
       def interest
@@ -22,8 +28,16 @@ module Calculators
       end
 
       def principal
-        amount = (@principal - deduction).ceil(2)
-        amount.negative? ? BigDecimal.new("0.00") : amount
+        (@principal - deduction).ceil(2)
+      end
+
+      private
+
+      def adjust_payment_if_greater_than_outstanding_balance
+        outstanding_balance = (@principal + interest)
+        if outstanding_balance < @payment
+          @payment = outstanding_balance
+        end
       end
     end
   end

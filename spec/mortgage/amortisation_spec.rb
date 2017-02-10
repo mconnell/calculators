@@ -94,16 +94,16 @@ RSpec.describe Calculators::Mortgage::Amortisation do
       describe "12th repayment" do
         let(:repayment) { subject.schedule[11] }
 
-        it "includes the repayment amount of 860.67" do
-          expect(repayment.payment).to eq(BigDecimal.new("860.67"))
+        it "includes the repayment amount of 860.66" do
+          expect(repayment.payment).to eq(BigDecimal.new("860.66"))
         end
 
         it "includes interest of 4.29" do
           expect(repayment.interest).to eq(BigDecimal.new("4.29"))
         end
 
-        it "includes a deduction from the principal of 856.38" do
-          expect(repayment.deduction).to eq(BigDecimal.new("856.38"))
+        it "includes a deduction from the principal of 856.37" do
+          expect(repayment.deduction).to eq(BigDecimal.new("856.37"))
         end
 
         it "includes an updated principal value of 0.00" do
