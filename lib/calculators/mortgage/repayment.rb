@@ -12,11 +12,7 @@ module Calculators
       end
 
       def payment
-        if @payment <= @principal + interest
-          @payment
-        else
-          @principal + interest
-        end
+        @payment
       end
 
       def interest
