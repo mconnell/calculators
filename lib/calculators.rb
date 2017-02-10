@@ -1,5 +1,5 @@
 require "calculators/version"
+require "calculators/mortgage/amortisation"
 
 module Calculators
-  # Your code goes here...
 end
